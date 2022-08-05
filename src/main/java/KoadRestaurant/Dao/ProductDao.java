@@ -1,0 +1,65 @@
+package KoadRestaurant.Dao;
+import KoadRestaurant.Model.Entity.Product;
+import KoadRestaurant.Model.Entity.ProductMapper;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class ProductDao extends BaseDao {
+    private StringBuffer SqlString() {
+        StringBuffer sql = new StringBuffer();
+        sql.append("SELECT ");
+        sql.append("p.id  ");
+        sql.append(", p.id_category ");
+        sql.append(", p.description ");
+        sql.append(", p.name ");
+        sql.append(", p.price ");
+        sql.append(", p.img ");
+        sql.append(", p.highlight ");
+        sql.append("FROM ");
+        sql.append("product AS p ");
+        sql.append("INNER JOIN ");
+        sql.append("category AS c ");
+        sql.append("ON p.id_category = c.id ");
+        return sql;
+    }
+    private String SqlProductsByCategory(String category) {
+        StringBuffer sql = SqlString();
+        sql.append("WHERE 1 = 1 ");
+        sql.append("AND c.name = '" + category + "' ");
+        return sql.toString();
+    }
+
+    private String SqlProductsByCategoryPaginate(String category,int start,int totalPage) {
+        StringBuffer sql = SqlString();
+        sql.append("WHERE 1 = 1 ");
+        sql.append("AND c.name = '" + category + "' ");
+        sql.append( " LIMIT " + start + " , " + totalPage +" ");
+        return sql.toString();
+    }
+
+    private String SqlProductById(int id){
+        StringBuffer sql = SqlString();
+        sql.append("WHERE 1 = 1 ");
+        sql.append("AND p.id = " + id + " ");
+        return sql.toString();
+    }
+
+    public Product GetProductById(int id){
+        String sql = SqlProductById(id).toString();
+        Product product = _jdbcTemplate.queryForObject(sql,new ProductMapper());
+        return product;
+    }
+
+    public List<Product> GetAllProductByCategory(String category){
+        String sql = SqlProductsByCategory(category);
+        List<Product> data = _jdbcTemplate.query(sql,new ProductMapper());
+        return data;
+    }
+    public List<Product> GetAllProductByCategoryPaginate(String category,int start,int totalProductPage){
+        String sql = SqlProductsByCategoryPaginate(category,start,totalProductPage);
+        List<Product> data = _jdbcTemplate.query(sql,new ProductMapper());
+        return data;
+    }
+}
