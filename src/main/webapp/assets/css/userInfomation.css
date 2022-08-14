@@ -1,0 +1,157 @@
+
+
+.profile {
+    margin: 100px auto;
+    display:grid;
+    grid-template-columns: 25% 75%;
+    grid-column-gap: 50px;
+    width: var(--width--main);
+
+}
+
+.profile-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.3);
+    display:flex;
+    flex-direction: column;
+
+}
+.profile-userpic {
+    margin:0 auto;
+}
+
+.profile-userpic img {
+    float: none;
+    margin: 0 auto;
+
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+
+.profile-usertitle {
+
+    margin-top: 20px;
+}
+
+
+.profile-usertitle-name {
+    text-align: center;
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.nav__user{
+    margin-left:40px;
+}
+.nav__user li{
+    list-style: none;
+    padding : 6px 0;
+}
+.nav__user li a:hover{
+    color: var(--main--color);
+}
+.nav__user li a{
+    text-decoration: none;
+    color: #5a7391;
+}
+
+
+
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5a7391;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-left: 40px;
+}
+
+
+.profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.profile-userbuttons .btn {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 15px;
+    margin-right: 5px;
+}
+.content__title{
+    text-align: center;
+    color: var(--title--color);
+}
+#customers{
+    width: 100%;
+}
+#customers th {
+    padding: 12px 0 12px 6px;
+    text-align: left;
+    background-color: var(--main--color);
+    opacity: 0.9;
+    color: white;
+
+}
+#customers td{
+    padding: 12px 0 12px 6px;
+}
+.profile-userbuttons .btn:last-child {
+    margin-right: 0px;
+}
+.profile-usermenu {
+    margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+    border-bottom: 1px solid #f0f4f7;
+}
+
+
+.profile-usermenu ul li:last-child {
+    border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+    color: #93a3b5;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.profile-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+    background-color: #fafcfd;
+    color: #5b9bd1;
+}
+
+
+.profile-usermenu ul li.active {
+    border-bottom: none;
+}
+
+
+.profile-usermenu ul li.active a {
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    margin-left: -2px;
+}
+
+
+.profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+}

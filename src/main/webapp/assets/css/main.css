@@ -54,6 +54,17 @@
     position: relative;
     z-index:10;
 }
+.nav__link--item{
+    display:block;
+    color: var(--title--color);
+    text-decoration: none;
+    font-size: var(--m--size);
+    padding: 26px 0px;
+    margin: 0 7px;
+    transition: all 0.2s;
+    position: relative;
+    z-index:10;
+}
 
 .nav__link--list{
     position: relative;

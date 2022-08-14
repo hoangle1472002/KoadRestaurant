@@ -20,5 +20,15 @@ public class ProductService implements IProductService{
         return productDao.GetAllProductByCategoryPaginate(category,start,totalProductPage);
     }
 
+    @Override
+    public List<Product> GetAllProducts() {
+        return productDao.GetAllProducts();
+    }
+
+    @Override
+    public int DeleteProduct(int id) {
+        return productDao.DeleteProduct(id);
+    }
+
 
 }

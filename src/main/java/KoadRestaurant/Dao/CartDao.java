@@ -53,14 +53,14 @@ public class CartDao {
     public int TotalQuantity(HashMap<Integer,CartDto> cart){
         int totalQuantity =0;
         for (Map.Entry<Integer,CartDto> item : cart.entrySet()){
-                totalQuantity = item.getValue().getQuantity();
+                totalQuantity += item.getValue().getQuantity();
         }
         return totalQuantity;
     }
     public double TotalPrice(HashMap<Integer,CartDto> cart){
         double totalPrice =0;
         for (Map.Entry<Integer,CartDto> item : cart.entrySet()){
-            totalPrice = item.getValue().getTotalPrice();
+            totalPrice += item.getValue().getTotalPrice();
         }
         return totalPrice;
     }

@@ -1,4 +1,4 @@
-package KoadRestaurant.Controller;
+package KoadRestaurant.Controller.UserController;
 import KoadRestaurant.Dao.CategoryDao;
 import KoadRestaurant.Model.DTO.PaginateDto;
 import KoadRestaurant.Service.PaginateService;

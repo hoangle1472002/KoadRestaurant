@@ -6,6 +6,12 @@ const nav = $('.nav');
 const navListBtn = $('.nav__list--small--btn');
 const navOptionListSmall = $('.nav__option--small--list');
 const backBtn = $('.back--btn');
+
+const editCart = $('.edit-cart');
+editCart.onclick = function (){
+    alert("1");
+}
+
 navListBtn.onclick = function() {
     navOptionListSmall.style.right = '100%';
 }

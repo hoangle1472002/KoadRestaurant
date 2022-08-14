@@ -43,10 +43,11 @@
                     </div>
                     <div class="product-price">${item.value.product.price}</div>
                     <div class="product-quantity">
-                        <input type="number" value="1" min="1" placeholder="1" id="quantity-cart-${item.key }" size="16" type="text" value="${ item.value.quantity }">
-                        <button data-id="${item.key }" onclick="IncreaseQuantity()"  class="btn btn-mini btn-danger edit-cart" type="button">
-                            <i class="ti-check"></i>
-                        </button>
+                            <input type="number" min="0" max="1000" class="span1" style="max-width:34px" placeholder="1" id="quantity-cart-${item.key }" size="16" type="text" value="${ item.value.quantity }">
+
+                            <button data-id="${item.key }" class="btn btn-mini btn-danger edit-cart" type="button">
+                                <i class="ti-check"></i>
+                            </button>
                     </div>
                     <div class="product-removal">
                         <a href="<c:url value="/DeleteCart/${item.key}"/>" class="remove-product">
@@ -64,35 +65,18 @@
 
         <div class="totals">
             <div class="totals-item">
-                <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">71.97</div>
+                <label>Total</label>
+                <div class="totals-value" id="cart-subtotal">${TotalPriceCart}</div>
             </div>
 
-            <div class="totals-item">
-                <label>Shipping</label>
-                <div class="totals-value" id="cart-shipping">15.00</div>
-            </div>
-            <div class="totals-item totals-item-total">
-                <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">90.57</div>
-            </div>
         </div>
 
-        <button class="checkout">Checkout</button>
+
+            <a class="checkout" href="<c:url value="/checkout"/>">Checkout</a>
+
 
     </div>
 </div>
-<content tag="script">
-    <script>
-          function IncreaseQuantity(){
-              const $ = document.querySelector.bind(document);
-              var id = $(this).data("id");
-              var quantity = $("#quantity-cart-"+id).val();
-              alert(quantity + " " + id);
-              window.location = "EditCart/"+ id + "/" + quantity;
-        };
-    </script>
-</content>
 
 </body>
 </html>

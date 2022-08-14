@@ -1,4 +1,6 @@
 package KoadRestaurant.Dao;
+import KoadRestaurant.Model.Entity.Bill;
+import KoadRestaurant.Model.Entity.BillMapper;
 import KoadRestaurant.Model.Entity.Product;
 import KoadRestaurant.Model.Entity.ProductMapper;
 import org.springframework.stereotype.Repository;
@@ -61,5 +63,17 @@ public class ProductDao extends BaseDao {
         String sql = SqlProductsByCategoryPaginate(category,start,totalProductPage);
         List<Product> data = _jdbcTemplate.query(sql,new ProductMapper());
         return data;
+    }
+
+    public List<Product> GetAllProducts(){
+        String sql = "Select * from product";
+        List<Product> listProduct = _jdbcTemplate.query(sql,new ProductMapper());
+        return listProduct;
+    }
+
+    public int DeleteProduct(int id){
+        String sql = "Delete from product Where id=" +id;
+        int delete = _jdbcTemplate.update(sql);
+        return delete;
     }
 }

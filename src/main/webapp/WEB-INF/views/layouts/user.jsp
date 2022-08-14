@@ -15,12 +15,18 @@
     <link rel="stylesheet" href="<c:url value="/assets/css/main.css"/> ">
     <link href="<c:url value="/assets/css/cart.css" />" rel="stylesheet" />
     <link rel="stylesheet" href="<c:url value="/assets/css/responsive.css" />">
-
+    <link rel="stylesheet" href="<c:url value="/assets/css/userInfomation.css" />">
+    <link rel="stylesheet" href="<c:url value="/assets/css/about.css" />">
+    <link rel="stylesheet" href="<c:url value="/assets/css/reservation.css" />">
+    <link rel="stylesheet" href="<c:url value="/assets/css/blog.css" />">
+    <link rel="stylesheet" href="<c:url value="/assets/css/post.css" />">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value="/assets/font/themify-icons/themify-icons.css"/> ">
     <link rel="stylesheet" href="<c:url value="/assets/font/fontawesome-free-5.15.4-web/css/all.css"/> ">
+
+
     <decorator:head />
 </head>
 <body>

@@ -120,6 +120,7 @@ label {
     color: #fff;
     font-size: 25px;
     border-radius: 3px;
+    text-decoration: none;
 }
 .checkout:hover {
     background-color: #494;
