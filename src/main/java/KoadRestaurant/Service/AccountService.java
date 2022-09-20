@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AccountService implements  IAccountService{
+public class AccountService implements IAccountService{
     @Autowired
     UserDao usersDao = new UserDao();
 
+    @Override
     public int AddAccount(User user) {
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
         return usersDao.AddUser(user);
@@ -24,17 +25,25 @@ public class AccountService implements  IAccountService{
         return usersDao.EditInfo(user);
     }
 
-    public User CheckRegistered(User user){
-        User check = usersDao.GetUserByAcc(user);
-        if(check != null)
-        {
-            return user;
-        }
-        else{
+
+    @Override
+    public List<User> GetAccountByName(String name) {
+        List<User> listAcc= usersDao.GetAccountByName(name);
+        if(listAcc == null)
             return null;
-        }
+        return listAcc;
     }
 
+    @Override
+    public User GetUserByAcc(User user) {
+        User check = usersDao.GetUserByAcc(user);
+        if(check == null)
+            return null;
+        else return check;
+    }
+
+
+    @Override
     public User CheckAcc(User user) {
         String password = user.getPassword();
         user = usersDao.GetUserByAcc(user);

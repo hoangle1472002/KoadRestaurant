@@ -46,6 +46,7 @@ public class UserDao extends  BaseDao {
         return result;
     }
 
+
     public List<User> GetAllUserAccounts(){
         String sql = "Select * from user";
         List<User> listAccount = _jdbcTemplate.query(sql,new UserMapper());
@@ -56,6 +57,12 @@ public class UserDao extends  BaseDao {
         int delete = _jdbcTemplate.update(sql);
         return delete;
     }
+    public List<User> GetAccountByName(String name){
+        String sql = "Select * from user Where name LIKE '%" +name +"%'";
+        List<User> listAccount = _jdbcTemplate.query(sql,new UserMapper());
+        return listAccount;
+    }
+
 
 
 }

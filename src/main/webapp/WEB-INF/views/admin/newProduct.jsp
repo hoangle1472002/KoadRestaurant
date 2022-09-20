@@ -69,6 +69,11 @@
         }
     }
 </style>
+<%
+    response.setHeader("Cache-Control","no-cache,no-store,must-revalide");
+    response.setHeader("Pragma","no-cache");
+    response.setHeader("Expires","0");
+%>
 <div class="header__menu">
     <%@include file="/WEB-INF/views/user/navigation.jsp"%>
 </div>
@@ -76,30 +81,26 @@
 <div class="content__menu">
 
 
-    <form:form action="AddBook" method="POST" style="border:1px solid #ccc" modelAttribute="book">
+    <form:form action="AddProduct" method="POST" style="border:1px solid #ccc" modelAttribute="product">
         <div class="container">
-            <h1>Book A Table</h1>
-            <p>Please fill in this form to book a table.</p>
+            <h1>Create new product</h1>
+            <p>Please fill in this form to create a product.</p>
             <hr>
 
-            <label  ><b>Name</b></label>
-            <form:input  type="text"  path="name_user" />
+            <label  ><b>ID_Category</b></label>
+            <form:input  type="text"  path="id_category" />
 
-            <label  ><b>Date</b></label>
-            <form:input type="text" placeholder="yyyy/mm/dd" path="date"  />
+            <label  ><b>Product's Name</b></label>
+            <form:input type="text" path="name"  />
 
-            <label ><b>Time</b></label>
-            <form:input type="text" placeholder="hh:mm" path="time" />
+            <label ><b>Description</b></label>
+            <form:input type="text" path="description" />
 
-            <label ><b>Guest</b></label>
-            <form:input type="text" path="guest"  />
+            <label ><b>Price</b></label>
+            <form:input type="text" path="price"  />
 
-            <label><b>Message</b></label>
-            <form:input type="text" path="message"   />
-
-
-
-            <h4>${statusRegister}</h4>
+            <label><b>Image</b></label>
+            <form:input type="text" path="img"   />
 
             <div class="clearfix">
                 <button type="button" class="cancelbtn">Cancel</button>

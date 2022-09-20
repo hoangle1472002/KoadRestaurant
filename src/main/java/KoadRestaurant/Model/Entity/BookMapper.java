@@ -12,8 +12,9 @@ public class BookMapper implements RowMapper<Book> {
         book.setId(rs.getInt("id"));
         book.setId_user(rs.getInt("id_user"));
         book.setName_user(rs.getString("name_user"));
-        book.setDate(rs.getDate("date"));
-        book.setTime(rs.getTime("time"));
+        book.setDate(rs.getString("date"));
+        book.setTime(rs.getString("time"));
+        book.setGuest(rs.getInt("guest"));
         book.setMessage(rs.getString("message"));
         return book;
     }

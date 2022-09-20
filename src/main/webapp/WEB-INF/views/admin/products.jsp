@@ -14,6 +14,11 @@
 
 </head>
 <body>
+<%
+    response.setHeader("Cache-Control","no-cache,no-store,must-revalide");
+    response.setHeader("Pragma","no-cache");
+    response.setHeader("Expires","0");
+%>
 <div class="header__menu">
     <!--Navigation-->
     <%@include file="/WEB-INF/views/user/navigation.jsp"%>
@@ -42,6 +47,9 @@
                 <th>Description</th>
                 <th>Price</th>
             </tr>
+            <button class="btn--admin">
+                <a  href="<c:url value="/admin/AddProduct"/>">Create</a>
+            </button>
             <c:forEach var="item" items="${ProductsList}">
                 <tr>
                     <td>
@@ -53,7 +61,7 @@
                     <td>${item.description}</td>
                     <td>${item.price}</td>
                     <td><button class="btn--admin">
-                        <a  href="http://">Edit</a>
+                        <a  href="<c:url value="/admin/EditProduct/${item.id}"/>">Edit</a>
                     </button></td>
                     <td><button class="btn--admin">
                         <a  href="<c:url value="/admin/DeleteProduct/${item.id}"/>">Remove</a>

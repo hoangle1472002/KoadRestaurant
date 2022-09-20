@@ -1,8 +1,7 @@
 package KoadRestaurant.Controller.AdminController;
 
-import KoadRestaurant.Dao.CategoryDao;
-import KoadRestaurant.Service.AccountService;
 import KoadRestaurant.Service.BillService;
+import KoadRestaurant.Service.BookService;
 import KoadRestaurant.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,25 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
-public class AdminBillController extends AdminBaseController {
+public class AdminBookController  extends  AdminBaseController{
     @Autowired
     public CategoryService categoryService = new CategoryService();
     @Autowired
-    public BillService billService = new BillService();
+    public BookService bookService = new BookService();
 
-    @RequestMapping(value= "/admin/ManageBills")
+    @RequestMapping(value= "/admin/ManageBooks")
     public ModelAndView Accounts(){
-        _mv = new ModelAndView("admin/userBills");
+        _mv = new ModelAndView("admin/userBooks");
         _mv.addObject("categoryList",categoryService.GetAllCategory());
-        _mv.addObject("UserBills",billService.GetAllBills());
+        _mv.addObject("UserBooks",bookService.GetAllBook());
         return _mv;
     }
-    @RequestMapping(value= "/admin/DeleteBill/{id}")
+    @RequestMapping(value= "/admin/DeleteBook/{id}")
     public String DeleteAccounts(@PathVariable int id, HttpServletRequest request){
-        _mv = new ModelAndView("admin/userBills");
-        billService.DeleteBill(id);
+        _mv = new ModelAndView("admin/userBooks");
+        bookService.DeleteBook(id);
         return "redirect:" + request.getHeader("Referer");
     }
+
 
 }

@@ -9,4 +9,6 @@ import java.util.List;
 public interface IBookService {
     public int AddBook(Book book);
     public List<Book> GetAllBookByIdUser(int id_user);
+    public List<Book> GetAllBook();
+    public int DeleteBook(int id);
 }

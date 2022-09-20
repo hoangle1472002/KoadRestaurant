@@ -25,7 +25,7 @@
                     <a href="<c:url value="/about"/>"  class="nav__link">Page<i class="ti-angle-down"></i></a>
                     <ul class="link__list--small">
                         <li class="link__list--item--small "><a href="<c:url value="/about"/>"  class="">About Us</a></li>
-                        <li class="link__list--item--small "><a href="<c:url value="/reservation"/>"  class="">Reservation</a></li>
+                        <li class="link__list--item--small "><a href="<c:url value="/AddBook"/>"  class="">Reservation</a></li>
                     </ul>
                 </div>
 
@@ -54,7 +54,7 @@
                 <a href="<c:url value="/about"/>" class="nav__link">Page<i class="ti-angle-down"></i></a>
                 <ul class="link__list">
                     <li class="link__list--item"><a href="<c:url value="/about"/>" class="">About Us</a></li>
-                    <li class="link__list--item"><a href="<c:url value="/reservation"/>" class="">Reservation</a></li>
+                    <li class="link__list--item"><a href="<c:url value="/AddBook"/>" class="">Reservation</a></li>
                 </ul>
             </div>
 
@@ -95,7 +95,7 @@
 
             </div>
         </div>
-        <div class="nav--btn btn--white"><a href="<c:url value="/reservation"/>" class="">Book a Table</a></div>
+        <div class="nav--btn btn--white"><a href="<c:url value="/AddBook"/>" class="">Book a Table</a></div>
         <c:if test="${not empty LoginInfo}">
             <div class="nav--btn btn--white"><a href="<c:url value="/logout"/>" class="">Logout</a></div>
         </c:if>

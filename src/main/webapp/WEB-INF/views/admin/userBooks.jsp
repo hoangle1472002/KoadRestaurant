@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,32 +36,28 @@
         </div>
 
     </div>
-
-
     <div class="content">
-        <form action="search" method="GET"  >
-            <input type="text" style="border: 1px solid rgba(0,0,0,0.1);padding: 10px 0 10px 5px" placeholder="Enter name" name="name" />
-            <button style="padding: 10px;background-color: var(--main--color);border: none;color: white;" type="submit">Search</button>
-        </form>
 
         <table id="customers">
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone</th>
+                <th>ID_User</th>
+                <th>User's Name</th>
+                <th>Date</th>
+                <th>TimeName</th>
+                <th>Guest</th>
+                <th>Message</th>
             </tr>
-            <c:forEach var="item" items="${UserAccounts}">
+            <c:forEach var="item" items="${UserBooks}">
                 <tr>
-                    <td>${item.id}</td>
-                    <td>${item.name}</td>
-                    <td>${item.email}</td>
-                    <td>${item.address}</td>
-                    <td>${item.phone}</td>
+                    <td>${item.id_user}</td>
+                    <td>${item.name_user}</td>
+                    <td>${item.date}</td>
+                    <td>${item.time}</td>
+                    <td>${item.guest}</td>
+                    <td>${item.message}</td>
 
                     <td><button class="btn--admin">
-                        <a  href="<c:url value="/admin/DeleteAccount/${item.id}"/>">Remove</a>
+                        <a  href="<c:url value="/admin/DeleteBook/${item.id}"/>">Remove</a>
                     </button></td>
                 </tr>
             </c:forEach>

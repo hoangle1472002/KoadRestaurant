@@ -42,4 +42,9 @@ public class BillService implements IBillService{
     public int DeleteBill(int id) {
         return billDao.DeleteBill(id);
     }
+
+    @Override
+    public List<Bill> GetAllBillbyIdUser(int id_user) {
+        return billDao.GetAllBillByIdUser(id_user);
+    }
 }

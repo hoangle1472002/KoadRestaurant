@@ -14,6 +14,11 @@
 
 </head>
 <body>
+<%
+    response.setHeader("Cache-Control","no-cache,no-store,must-revalide");
+    response.setHeader("Pragma","no-cache");
+    response.setHeader("Expires","0");
+%>
 <div class="header__menu">
     <!--Navigation-->
     <%@include file="/WEB-INF/views/user/navigation.jsp"%>
@@ -35,28 +40,26 @@
 
         <table id="customers">
             <tr>
-                <th>ID</th>
                 <th>ID_User</th>
-                <th>Name</th>
-                <th>Phone</th>
+                <th>Product's Name</th>
+                <th>Quantity</th>
+                <th>User's Name</th>
                 <th>Email</th>
+                <th>Phone</th>
                 <th>Address</th>
                 <th>Total</th>
-                <th>Quantity</th>
             </tr>
             <c:forEach var="item" items="${UserBills}">
                 <tr>
-                    <td>${item.id}</td>
                     <td>${item.id_user}</td>
+                    <td>${item.name_product}</td>
+                    <td>${item.quantity}</td>
                     <td>${item.name_user}</td>
-                    <td>${item.phone}</td>
                     <td>${item.email}</td>
+                    <td>${item.phone}</td>
                     <td>${item.address}</td>
                     <td>${item.total}</td>
-                    <td>${item.quantity}</td>
-                    <td><button class="btn--admin">
-                        <a  href="http://">Edit</a>
-                    </button></td>
+
                     <td><button class="btn--admin">
                         <a  href="<c:url value="/admin/DeleteBill/${item.id}"/>">Remove</a>
                     </button></td>

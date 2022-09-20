@@ -48,7 +48,7 @@ public class CartController extends  BaseController {
         session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
         return "redirect:" + request.getHeader("Referer");
     }
-    @RequestMapping(value="EditCart/{id}/{quantity}")
+    @RequestMapping(value="/EditCart/{id}/{quantity}")
     public String EditCart(HttpServletRequest request,HttpSession session,@PathVariable int id,@PathVariable int quantity) {
         HashMap<Integer,CartDto> cart = (HashMap<Integer,CartDto>)session.getAttribute("Cart");
         if(cart == null)
@@ -113,7 +113,6 @@ public class CartController extends  BaseController {
             bill.setTotal(cartService.TotalPrice(cart));
             bill.setQuantity(cartService.TotalQuantity(cart));
             if(billService.Addbill(bill) > 0){
-
                 billService.AddBillDetail(cart);
             }
             session.removeAttribute("Cart");

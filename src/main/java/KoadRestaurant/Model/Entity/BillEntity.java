@@ -1,12 +1,10 @@
 package KoadRestaurant.Model.Entity;
 
-public class Bill {
+public class BillEntity {
     private int id,id_user,quantity;
-    private String name_product,name_user;
+    private String  name_user;
     private String phone,email,address;
     private double total;
-    public Bill() {
-    }
 
     public int getId() {
         return id;
@@ -30,14 +28,6 @@ public class Bill {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public String getName_product() {
-        return name_product;
-    }
-
-    public void setName_product(String name_product) {
-        this.name_product = name_product;
     }
 
     public String getName_user() {

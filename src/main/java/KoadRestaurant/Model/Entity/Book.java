@@ -7,8 +7,8 @@ public class Book {
     private int id;
     private int id_user;
     private String name_user;
-    private Date date;
-    private Time time;
+    private String date;
+    private String time;
     private int guest;
     private String message;
 
@@ -39,19 +39,19 @@ public class Book {
         this.name_user = name_user;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

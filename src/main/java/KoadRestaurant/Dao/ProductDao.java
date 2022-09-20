@@ -1,8 +1,5 @@
 package KoadRestaurant.Dao;
-import KoadRestaurant.Model.Entity.Bill;
-import KoadRestaurant.Model.Entity.BillMapper;
-import KoadRestaurant.Model.Entity.Product;
-import KoadRestaurant.Model.Entity.ProductMapper;
+import KoadRestaurant.Model.Entity.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -75,5 +72,39 @@ public class ProductDao extends BaseDao {
         String sql = "Delete from product Where id=" +id;
         int delete = _jdbcTemplate.update(sql);
         return delete;
+    }
+
+    public int AddProduct(Product product) {
+        StringBuffer sql = new StringBuffer();
+        sql.append("INSERT ");
+        sql.append("INTO product ");
+        sql.append("( ");
+        sql.append(" id_category, ");
+        sql.append(" name, ");
+        sql.append(" description, ");
+        sql.append(" price, ");
+        sql.append(" img ");
+        sql.append(")");
+        sql.append(" VALUES ");
+        sql.append(" ( ");
+        sql.append(" '"+ product.getId_category()  +"', ");
+        sql.append(" '"+ product.getName()  +"', ");
+        sql.append(" '"+ product.getDescription()  +"', ");
+        sql.append(" '"+ product.getPrice()  +"', ");
+        sql.append(" '"+ product.getImg()  +"' ");
+        sql.append(" ) ");
+
+
+        int insert = _jdbcTemplate.update(sql.toString());
+        return insert;
+    }
+    public int UpdateProduct(int idProduct,Product product){
+        String sql = "update product " +
+                "set id_category= "+product.getId_category() +",name='"+ product.getName()+"'," +
+                "description='"+ product.getDescription()+"',price = "+product.getPrice() +",img='"+ product.getImg()+"'\n" +
+                "where id =" +idProduct;
+        int update = _jdbcTemplate.update(sql);
+        return update;
+
     }
 }

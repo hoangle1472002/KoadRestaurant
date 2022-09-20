@@ -30,5 +30,20 @@ public class ProductService implements IProductService{
         return productDao.DeleteProduct(id);
     }
 
+    @Override
+    public int AddProduct(Product product) {
+        return productDao.AddProduct(product);
+    }
+
+    @Override
+    public int EditProduct(int idProduct,Product product) {
+        return productDao.UpdateProduct(idProduct,product);
+    }
+
+    @Override
+    public Product GetProductById(int id) {
+        return productDao.GetProductById(id);
+    }
+
 
 }

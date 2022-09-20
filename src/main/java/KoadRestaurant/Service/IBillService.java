@@ -14,4 +14,5 @@ public interface IBillService {
     public void AddBillDetail(HashMap<Integer, CartDto> cart);
     public List<Bill> GetAllBills();
     public int DeleteBill(int id);
+    public List<Bill> GetAllBillbyIdUser(int id_user);
 }

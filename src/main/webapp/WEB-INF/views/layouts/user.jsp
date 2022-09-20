@@ -30,6 +30,7 @@
     <decorator:head />
 </head>
 <body>
+
 <!-- CONTAINER -->
     <div>
         <decorator:body/>

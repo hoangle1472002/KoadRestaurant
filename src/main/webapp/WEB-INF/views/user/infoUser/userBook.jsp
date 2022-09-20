@@ -35,17 +35,23 @@
 
             <table id="customers">
                 <tr>
-                    <th>ID</th>
-                    <th>Hour</th>
+                    <th>Name</th>
                     <th>Date</th>
-                    <th>Status</th>
+                    <th>TimeName</th>
+                    <th>Guest</th>
+                    <th>Message</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>7:00 </td>
-                    <td>07/07/2002</td>
-                    <td>Available</td>
-                </tr>
+                <c:forEach var="item" items="${books}">
+                    <tr>
+                        <td>${item.name_user}</td>
+                        <td>${item.date}</td>
+                        <td>${item.time}</td>
+                        <td>${item.guest}</td>
+                        <td>${item.message}</td>
+
+                    </tr>
+                </c:forEach>
+
 
             </table>
 

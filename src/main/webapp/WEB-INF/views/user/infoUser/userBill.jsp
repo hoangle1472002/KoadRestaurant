@@ -35,18 +35,27 @@
 
             <table id="customers">
                 <tr>
-                    <th>ID</th>
-                    <th>Prodouct</th>
+                    <th>Product's Name</th>
                     <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
+                    <th>User's Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Total</th>
                 </tr>
 
+                <c:forEach var="item" items="${bills}">
+                    <tr>
+                        <td>${item.name_product}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.name_user}</td>
+                        <td>${item.email}</td>
+                        <td>${item.phone}</td>
+                        <td>${item.address}</td>
+                        <td>${item.total}</td>
+
+                    </tr>
+                </c:forEach>
             </table>
 
 

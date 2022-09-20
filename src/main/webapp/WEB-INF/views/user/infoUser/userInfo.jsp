@@ -103,6 +103,8 @@
 
                 </div>
             </div>
+
+
             <div class="col-md-9">
 
                 <form:form action="userInfo" method="POST" style="border:1px solid #ccc" modelAttribute="user">

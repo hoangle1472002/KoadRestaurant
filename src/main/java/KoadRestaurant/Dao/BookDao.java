@@ -19,4 +19,16 @@ public class BookDao extends BaseDao {
         List<Book> data = _jdbcTemplate.query(sql,new BookMapper());
         return data;
     }
+
+    public List<Book> GetAllBook(){
+        String sql = "Select * from book ";
+        List<Book> data = _jdbcTemplate.query(sql,new BookMapper());
+        return data;
+    }
+    public int DeleteBook(int id){
+        String sql = "DELETE from book where id=" +id;
+        int delete = _jdbcTemplate.update(sql);
+        return delete;
+    }
+
 }

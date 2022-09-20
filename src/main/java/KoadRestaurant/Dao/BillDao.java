@@ -1,9 +1,6 @@
 package KoadRestaurant.Dao;
 
-import KoadRestaurant.Model.Entity.Bill;
-import KoadRestaurant.Model.Entity.BillDetail;
-import KoadRestaurant.Model.Entity.BillMapper;
-import KoadRestaurant.Model.Entity.User;
+import KoadRestaurant.Model.Entity.*;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
@@ -41,8 +38,8 @@ public class BillDao extends BaseDao {
     public int GetIdLastBill(){
         int id= 0;
         StringBuffer sql = new StringBuffer();
-        sql.append("SELECT * from bill ORDER BY id DESC LIMIT 1");
-        Bill bill =_jdbcTemplate.queryForObject(sql.toString(),new BillMapper());
+        sql.append("select * from bill order by id desc limit 1");
+        BillEntity bill =_jdbcTemplate.queryForObject(sql.toString(),new BillEntityMapper());
         id = bill.getId();
         return id;
     }
@@ -69,9 +66,17 @@ public class BillDao extends BaseDao {
     }
 
     public List<Bill> GetAllBills(){
-        String sql = "Select * from bill";
+        String sql = "select b.id, b.id_user,p.name,bd.quantity,b.name_user,b.phone,b.email,b.address,bd.total\n" +
+                "from bill as b inner join billdetail as bd on b.id = bd.id_bill inner join product as p on p.id = bd.id_product";
         List<Bill> listBill = _jdbcTemplate.query(sql,new BillMapper());
         return listBill;
+    }
+
+    public List<Bill> GetAllBillByIdUser(int id_user){
+        String sql = "select b.id, b.id_user,p.name,bd.quantity,b.name_user,b.phone,b.email,b.address,bd.total " +
+                "from bill as b inner join billdetail as bd on b.id = bd.id_bill inner join product as p on p.id = bd.id_product where id_user =" +  id_user;
+        List<Bill> data = _jdbcTemplate.query(sql,new BillMapper());
+        return data;
     }
 
     public int DeleteBill(int id){

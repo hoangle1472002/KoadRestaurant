@@ -13,4 +13,6 @@ public interface IAccountService {
 	public User CheckAcc(User user);
 	public List<User> GetAllUserAccounts();
 	public int DeleteAccountbyId(int id);
+	public List<User> GetAccountByName(String name);
+	public User GetUserByAcc(User user);
 }

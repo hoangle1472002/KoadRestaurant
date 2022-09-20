@@ -10,4 +10,7 @@ public interface IProductService {
     public List<Product> GetAllProductbyCategoryPaginate(String category,int start,int totalProductPage);
     public List<Product> GetAllProducts();
     public int DeleteProduct(int id);
+    public int AddProduct(Product product);
+    public int EditProduct(int idProduct,Product product);
+    public Product GetProductById(int id);
 }

@@ -18,4 +18,14 @@ public class BookService implements  IBookService{
     public List<Book> GetAllBookByIdUser(int id_user) {
         return bookDao.GetAllBookByIdUser(id_user);
     }
+
+    @Override
+    public List<Book> GetAllBook() {
+        return bookDao.GetAllBook();
+    }
+
+    @Override
+    public int DeleteBook(int id) {
+        return bookDao.DeleteBook(id);
+    }
 }
